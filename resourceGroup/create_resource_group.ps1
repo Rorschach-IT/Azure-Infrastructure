@@ -1,5 +1,5 @@
 # ============================================
-# Connect to and display an Azure Resource Group
+# Create an Azure Resource Group
 # ============================================
 
 Clear-Host
