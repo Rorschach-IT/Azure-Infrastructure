@@ -1,5 +1,9 @@
 # Azure-Infrastructure
 
+In my personal configuration, my VMs infrastructure looks something like this:
+
+![](/images/VM-infrastructure.png)
+
 ## Requirements (23.10.2026 {Poland dating convention})
 
 - Minimal **Windows Powershell 5.1**, but recommended: **Powershell 7 or higher** for (Windows, Linux, macOS). Visit: https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows?view=powershell-7.6
@@ -19,9 +23,9 @@ If your account belongs to multiple tenants or you want to target a specific dir
 Connect-AzAccount -Tenant "your-tenant-id-or-domain.com"
 ```
 
-You may receive an error:
+You may receive an error when trying some global operations:
 
-![](/screenshots/MFA-error.png)
+![](/images/MFA-error.png)
 
 In order to make administration operations ex. creating resource_name, you need to authenticate with MFA:
 
@@ -31,7 +35,7 @@ Connect-AzAccount -Tenant (Get-AzContext).Tenant.Id -ClaimsChallenge "your_perso
 
 ## How to use?
 
-| File                                                                      | Usage                        |
-| ------------------------------------------------------------------------- | ---------------------------- |
-| [**create_resource_group.ps1**](/resourceGroup/create_resource_group.ps1) | Creates a new resource group |
-| [**check_resource_group.ps1**](/resourceGroup/check_resource_group.ps1)   | Creates a new resource group |
+| File                                                                      | Usage                                                   |
+| ------------------------------------------------------------------------- | ------------------------------------------------------- |
+| [**create_resource_group.ps1**](/resourceGroup/create_resource_group.ps1) | Creates a new resource group.                           |
+| [**check_resource_group.ps1**](/resourceGroup/check_resource_group.ps1)   | Print data of the resource group: resources, VMs e.t.c. |
