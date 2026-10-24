@@ -3,7 +3,7 @@
 # ============================================
 
 # Disclaimer:
-# The official MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition:latest image has RDP automatically enabled at the OS level when deployed as a virtual machine in the Microsoft Azure cloud. This script is for check purposes, it is optional in implementation.
+# The official MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition:latest image has RDP automatically enabled at the OS level when deployed as a virtual machine in the Microsoft Azure cloud. This script is for testing purposes, it is optional during implementation.
 
 Clear-Host
 
