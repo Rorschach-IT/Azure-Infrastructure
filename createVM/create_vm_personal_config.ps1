@@ -218,33 +218,36 @@ Write-Host "The script will create a new Virtual Network, subnet, Network Securi
 Write-Host "The names entered below must not already exist in this Resource Group." -ForegroundColor DarkGray
 
 # ============================================
-# Select a unique Virtual Network name
+# Select or Reuse a Virtual Network name
 # ============================================
 
 $vnetName = $null
 
 while ($null -eq $vnetName) {
     Write-Host ""
-    $vnetNameInput = Read-Host "Enter a new Virtual Network name"
+    $vnetNameInput = Read-Host "Enter Virtual Network name (to create new or reuse existing)"
 
     if ([string]::IsNullOrWhiteSpace($vnetNameInput)) {
         Write-Host "Virtual Network name cannot be empty. Please try again." -ForegroundColor Red
         continue
     }
 
+    # Sprawdzamy, czy sieć już istnieje w grupie zasobów
     $existingVnet = Get-AzVirtualNetwork `
         -ResourceGroupName $resourceGroupName `
         -Name $vnetNameInput `
         -ErrorAction SilentlyContinue
 
     if ($null -ne $existingVnet) {
-        Write-Host "Virtual Network '$vnetNameInput' already exists in this Resource Group." -ForegroundColor Yellow
-        Write-Host "Please enter a different Virtual Network name." -ForegroundColor Yellow
-        continue
+        # Sieć istnieje - możemy jej użyć ponownie!
+        Write-Host "Virtual Network '$vnetNameInput' already exists. Reusing existing VNet." -ForegroundColor Green
+        $vnetName = $vnetNameInput
     }
-
-    $vnetName = $vnetNameInput
-    Write-Host "Virtual Network name '$vnetName' is available." -ForegroundColor Green
+    else {
+        # Sieć nie istnieje - nazwa jest wolna, zostanie utworzona nowa
+        $vnetName = $vnetNameInput
+        Write-Host "Virtual Network name '$vnetName' is available and will be created." -ForegroundColor Green
+    }
 }
 
 # ============================================
