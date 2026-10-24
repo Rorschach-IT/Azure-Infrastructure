@@ -8,6 +8,10 @@ In my personal configuration, i have two configs of resource group infrastructur
 
 In my case: subscription Azure For Students => I can only have maximum 3 public IP addresses, so in my case, there are two configurations, i can choose and manually create both of them in automated implementation.
 
+Machine configuration config can be set for example with something like that:
+
+![](/images/VM-infrastructure-3.png)
+
 ## Requirements
 
 - Minimal **Windows Powershell 5.1**, but recommended: **Powershell 7 or higher** for (Windows, Linux, macOS). Visit: https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows?view=powershell-7.6

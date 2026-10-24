@@ -1,1 +1,4 @@
 .private
+
+# Machine Configuration build artifacts
+artifacts
