@@ -35,6 +35,8 @@ Connect-AzAccount -Tenant (Get-AzContext).Tenant.Id -ClaimsChallenge "your_perso
 
 ## How to use?
 
+**Quick info**: _sometimes azure powershell can free, type ctrl + c to skip the current zombie process_.
+
 | File                                                                      | Usage                                                   |
 | ------------------------------------------------------------------------- | ------------------------------------------------------- |
 | [**create_resource_group.ps1**](/resourceGroup/create_resource_group.ps1) | Creates a new resource group.                           |
