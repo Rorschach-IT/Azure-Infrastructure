@@ -1,6 +1,6 @@
 # Azure-Infrastructure
 
-In my personal configuration, i have two configs of resource group infrastructure:
+The configuration, that you want to achieve is up to you. Publicated scripts are based on my personal configuration, but you can use them as your automated scripts for creating a quick infrastructure in Az resource group. I have two configs of resource group infrastructure:
 
 ![](/images/VM-infrastructure.png)
 
@@ -43,9 +43,43 @@ Connect-AzAccount -Tenant (Get-AzContext).Tenant.Id -ClaimsChallenge "your_perso
 
 ## How to use?
 
-**Quick info**: _sometimes azure powershell can free, type ctrl + c to skip the current zombie process_.
+**Quick info:** Some Azure PowerShell operations may take a while to complete. If an operation appears unresponsive, you can press `Ctrl+C` to stop waiting in the current terminal. Check the operation status in Azure before running it again.
 
-| File                                                                      | Usage                                                   |
-| ------------------------------------------------------------------------- | ------------------------------------------------------- |
-| [**create_resource_group.ps1**](/resourceGroup/create_resource_group.ps1) | Creates a new resource group.                           |
-| [**check_resource_group.ps1**](/resourceGroup/check_resource_group.ps1)   | Print data of the resource group: resources, VMs e.t.c. |
+### Resource groups
+
+| File                                                                                 | Usage                                                                                      |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| [/resourceGroup/create_resource_group.ps1](/resourceGroup/create_resource_group.ps1) | Creates a new Azure resource group.                                                        |
+| [/resourceGroup/check_resource_group.ps1](/resourceGroup/check_resource_group.ps1)   | Displays information about a resource group and its resources, including virtual machines. |
+
+### Virtual machines
+
+| File                                                                               | Usage                                                                |
+| ---------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [/createVM/create_vm_personal_config.ps1](/createVM/create_vm_personal_config.ps1) | Creates an Azure virtual machine using a personalized configuration. |
+
+### Load balancer
+
+| File                                                                                                         | Usage                                                              |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| [/services/loadBalancer/create_ld_personal_config.ps1](/services/loadBalancer/create_ld_personal_config.ps1) | Creates an Azure Load Balancer using a personalized configuration. |
+
+### Ubuntu Server
+
+| File                                                                                                           | Usage                                                              |
+| -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| [/services/Ubuntu-Server/add_apache2_and_open_http.ps1](/services/Ubuntu-Server/add_apache2_and_open_http.ps1) | Installs Apache2 on an Ubuntu VM and configures HTTP access.       |
+| [/services/Ubuntu-Server/allow_icmp.ps1](/services/Ubuntu-Server/allow_icmp.ps1)                               | Configures ICMP access for connectivity testing with ping.         |
+| [/services/Ubuntu-Server/check_and_open_ssh.ps1](/services/Ubuntu-Server/check_and_open_ssh.ps1)               | Checks SSH availability on an Ubuntu VM and configures SSH access. |
+
+### Windows Server
+
+| File                                                                                                       | Usage                                                                 |
+| ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| [/services/Windows-Server/add_iis_and_open_http.ps1](/services/Windows-Server/add_iis_and_open_http.ps1)   | Installs IIS on a Windows Server VM and configures HTTP access.       |
+| [/services/Windows-Server/allow_icmp.ps1](/services/Windows-Server/allow_icmp.ps1)                         | Configures ICMP access for connectivity testing with ping.            |
+| [/services/Windows-Server/open_rdp_for_localhost.ps1](/services/Windows-Server/open_rdp_for_localhost.ps1) | Configures RDP access to a Windows Server VM from the local computer. |
+
+### Experimental zone
+
+All files located in [**/machineConfiguration**](/machineConfiguration/) may have bugs and are not fully tested.
